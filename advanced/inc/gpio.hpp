@@ -51,6 +51,8 @@ class GPIO {
             BCM2837_GPPUD,
             BCM2837_GPPUDCLK0,
             BCM2837_GPPUDCLK1,
+            BCM2837_RESERVED,
+            BCM2837_TEST,
             BCM2837_MAX
         };
 
