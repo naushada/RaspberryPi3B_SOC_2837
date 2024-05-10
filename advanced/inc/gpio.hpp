@@ -97,6 +97,8 @@ class GPIO {
             BCM2837_GPFSELn_INPUT = 0x00000000,
             BCM2837_GPFSELn_OUTPUT = 0x00000001
         };
+
+        
     private:
         device_register m_register;
 
