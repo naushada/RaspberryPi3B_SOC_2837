@@ -9,6 +9,7 @@ class GPIO {
         using device_register = std::uint32_t volatile;
         using gpio_number = std::uint32_t;
 
+        /* @brief Compiler give preference to this new operator over global new operator and invoke this new operator. */
         void *operator new(std::size_t) {
             return reinterpret_cast<void *>((0x3F000000) + (0x00200000));
         }
@@ -47,6 +48,7 @@ class GPIO {
          *
          * */
         void set(gpio_number gpio);
+        void clear(gpio_number gpio);
 
         enum class Register: std::uint32_t {
             /* GPIO Function Selection offset */
