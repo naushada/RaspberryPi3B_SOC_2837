@@ -12,12 +12,8 @@
 class GPIOTest : public ::testing::Test
 {
     public:
-        GPIOTest() : m_gpio(*new(m_reg) GPIO) {}
+        GPIOTest() : m_reg(64), m_gpio(*new(m_reg.data()) GPIO) {}
         ~GPIOTest() = default;
-     
-        std::string& getFileName() {
-            return(fileName);
-        }
         
         virtual void SetUp() override;
         virtual void TearDown() override;
@@ -28,8 +24,7 @@ class GPIOTest : public ::testing::Test
         }
 
     private:
-        std::string fileName;
-        std::uint32_t m_reg[41];
+        std::vector<std::uint32_t> m_reg;
         GPIO& m_gpio;
 };
 
