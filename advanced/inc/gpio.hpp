@@ -62,7 +62,11 @@ class GPIO {
         using device_register = std::uint32_t volatile;
         using gpio_number = std::uint32_t;
 
-        /* @brief Compiler give preference to this new operator over global new operator and invoke this new operator. */
+        /** 
+         * @brief Compiler give preference to this new operator over global new operator and invoke this new operator. 
+         * @param param will be passed to the ctor if any.
+         * @return pointer to void
+         */
         void *operator new(std::size_t) {
             return reinterpret_cast<void *>((0x3F000000) + (0x00200000));
         }
@@ -77,40 +81,46 @@ class GPIO {
         ~GPIO() = default;
 
         /**
-         * @Description: 
-         * 000 = GPIO Pin n is an input
-         * 001 = GPIO Pin n is an output
-         * 100 = GPIO Pin n takes alternate function 0 
-         * 101 = GPIO Pin n takes alternate function 1 
-         * 110 = GPIO Pin n takes alternate function 2 
-         * 111 = GPIO Pin n takes alternate function 3 
-         * 011 = GPIO Pin n takes alternate function 4 
-         * 010 = GPIO Pin n takes alternate function 5
-         * @param          : gpio number
-         * @param          : respective GPIO is set OUTPUT
-         * @return         : Always return 0
+         * @brief
+            * 000 = GPIO Pin n is an input
+            * 001 = GPIO Pin n is an output
+            * 100 = GPIO Pin n takes alternate function 0
+            * 101 = GPIO Pin n takes alternate function 1
+            * 110 = GPIO Pin n takes alternate function 2
+            * 111 = GPIO Pin n takes alternate function 3
+            * 011 = GPIO Pin n takes alternate function 4
+            * 010 = GPIO Pin n takes alternate function 5
+            * 
+         * @param gpio number
+         * @return none
          **/
         void in(gpio_number gpio);
         void out(gpio_number gpio);
         std::uint32_t get(gpio_number gpio);
+
         /**
-         * @Description: The output clear registers are used to clear a GPIO pin. 
-         *               The CLR{n} field defines the respective GPIO pin to clear, 
-         *               writing a “0” to the field has no effect. 
-         *               If the GPIO pin is being used as in input (by default) 
-         *               then the value in the CLR{n} field is ignored. However, 
-         *               if the pin is subsequently defined as an output then the bit will be set according to 
-         *               the last set/clear operation. 
-         *               Separating the set and clear functions removes the need for read-modify-write operations.
-         *
+         * @brief
+            * The output clear registers are used to clear a GPIO pin. 
+            * The CLR{n} field defines the respective GPIO pin to clear, 
+            * writing a “0” to the field has no effect. 
+            * If the GPIO pin is being used as in input (by default) 
+            * then the value in the CLR{n} field is ignored. However, 
+            * if the pin is subsequently defined as an output then the bit will be set according to 
+            * the last set/clear operation. 
+            * Separating the set and clear functions removes the need for read-modify-write operations.
+            *
+         * @param gpio_number
+         * @return none
          * */
-        void set(gpio_number gpio);
         void clear(gpio_number gpio);
+        void set(gpio_number gpio);
 
     private:
-        /* address for m_register will be 
+        /** 
+         * @brief
+         * address for m_register will be 
          * [0x3F200000, 0x3F200004, 0x3F200008, 0x3F20000C, 0x3F200010, 0x3F200014, 0x3F200018, 0x3F20001C  ... 0x3F2000B0] 
-         */
+         **/
         device_register m_register[Register::BCM2837_MAX];
 
 };
