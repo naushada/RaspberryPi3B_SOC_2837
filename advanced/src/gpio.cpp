@@ -54,7 +54,7 @@ void GPIO::input(gpio_number gpio_n) {
     m_register[(gpio_n / 10)] &= (~(7U << ((gpio_n % 10U) * 3U)));
 }
 
-void GPIO::clear(gpio_number gpio_n) {
+void GPIO::GPCLRn(gpio_number gpio_n) {
     if(gpio_n < 32) {
         /* sets the respective bit */					
         m_register[Register::BCM2837_GPCLR0] &= (~(1U << gpio_n));
@@ -64,7 +64,7 @@ void GPIO::clear(gpio_number gpio_n) {
 	}
 }
 
-void GPIO::set(gpio_number gpio_n) {
+void GPIO::GPSETn(gpio_number gpio_n) {
   
     if(gpio_n < 32) {
         m_register[Register::BCM2837_GPSET0] |= (1U << gpio_n);

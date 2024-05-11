@@ -132,11 +132,22 @@ class GPIO {
             * the last set/clear operation. 
             * Separating the set and clear functions removes the need for read-modify-write operations.
             *
-         * @param gpio_number
+         * @param gpio_n This is GPIO number to be cleared
          * @return none
          * */
-        void clear(gpio_number gpio);
-        void set(gpio_number gpio);
+        void GPCLRn(gpio_number gpio_n);
+        /**
+         * @brief
+         *   The output set registers are used to set a GPIO pin. The SET{n} field defines the
+         *   respective GPIO pin to set, writing a “0” to the field has no effect. If the GPIO pin is
+         *   being used as in input (by default) then the value in the SET{n} field is ignored.
+         *   However, if the pin is subsequently defined as an output then the bit will be set
+         *   according to the last set/clear operation. Separating the set and clear functions
+         *   removes the need for read-modify-write operations
+         * @param gpio_n This is GPIO number which is to be set
+         * @return none
+        */
+        void GPSETn(gpio_number gpio_n);
         std::uint32_t read(gpio_number gpio_n);
         std::uint32_t read32(gpio_number gpio_n);
         void write32(gpio_number gpio_n, std::uint32_t value);
