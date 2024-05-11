@@ -74,6 +74,15 @@ void GPIO::GPSETn(gpio_number gpio_n) {
 	}
 }
 
+std::uint32_t GPIO::GPGETn(gpio_number gpio_n) {
+  
+    if(gpio_n < 32) {
+        return((m_register[Register::BCM2837_GPSET0]  >> gpio_n) & 01U);
+    } else {
+        /*set the bits 0 - 21 for GPIO greater than 31 */
+        return((m_register[Register::BCM2837_GPSET1] >> (gpio_n - 32)) & 01U);
+	}
+}
 
 
 

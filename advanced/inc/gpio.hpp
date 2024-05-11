@@ -148,6 +148,7 @@ class GPIO {
          * @return none
         */
         void GPSETn(gpio_number gpio_n);
+        std::uint32_t GPGETn(gpio_number gpio_n);
         std::uint32_t read(gpio_number gpio_n);
         std::uint32_t read32(gpio_number gpio_n);
         void write32(gpio_number gpio_n, std::uint32_t value);

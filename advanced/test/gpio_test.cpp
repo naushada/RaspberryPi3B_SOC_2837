@@ -372,5 +372,36 @@ TEST(GPIOTestSuite, GPIO_Number_50to53_InputMode_AlternateFunction4) {
     EXPECT_EQ(res, 0x6c0);
 }
 
+TEST(GPIOTestSuite, GPIO_Number_0to31_GPSETn) {
+
+    GPIOTest inst;
+
+    GPIO::gpio_number gpio_n = 0;
+    for(; gpio_n < 32; ++gpio_n) {
+        inst.gpio().GPSETn(gpio_n);
+    }
+
+    gpio_n = 20;
+    auto res = inst.gpio().GPGETn(gpio_n);
+    std::cout << "GPIO 0 to 31: 0x" << std::hex << res << std::dec << std::endl;
+
+    EXPECT_EQ(res, 01);
+}
+
+TEST(GPIOTestSuite, GPIO_Number_32to53_GPSETn) {
+
+    GPIOTest inst;
+
+    GPIO::gpio_number gpio_n = 32;
+    for(; gpio_n < 54; ++gpio_n) {
+        inst.gpio().GPSETn(gpio_n);
+    }
+
+    gpio_n = 40;
+    auto res = inst.gpio().GPGETn(gpio_n);
+    std::cout << "GPIO 32 to 53: 0x" << std::hex << res << std::dec << std::endl;
+
+    EXPECT_EQ(res, 01);
+}
 
 #endif /*__gpio_test_cpp__*/
