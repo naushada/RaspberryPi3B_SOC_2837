@@ -10,3 +10,5 @@ include_directories(inc)
 file(GLOB SOURCES "src/*.cpp")
 
 add_executable(gpio ${SOURCES})
+
+add_subdirectory(test)

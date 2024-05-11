@@ -53,10 +53,6 @@ void GPIO::set(gpio_number gpio_n) {
 }
 
 
-std::int32_t main() {
-    GPIO &gpio = *new GPIO;
-}
-
 
 
 

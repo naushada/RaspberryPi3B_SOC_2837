@@ -64,11 +64,21 @@ class GPIO {
 
         /** 
          * @brief Compiler give preference to this new operator over global new operator and invoke this new operator. 
-         * @param param will be passed to the ctor if any.
+         * @param nBytes Number of bytes to be allocated
+         * @param ptr additional pointer that will be return as is if it's provided in call
          * @return pointer to void
          */
-        void *operator new(std::size_t) {
-            return reinterpret_cast<void *>((0x3F000000) + (0x00200000));
+        void *operator new(std::size_t nBytes, void *ptr=nullptr) {
+
+            if(nullptr == ptr) {
+                /**
+                 * @brief 
+                 *  The address is Physical address of GPIO for Raspberry Pi 3B and
+                 *  is used for memory map for GPIO.
+                 */
+                return reinterpret_cast<void *>((0x3F000000) + (0x00200000));
+            }
+            return(ptr);
         }
 
         GPIO() {
