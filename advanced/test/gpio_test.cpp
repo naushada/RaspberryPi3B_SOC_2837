@@ -77,7 +77,7 @@ TEST(GPIOTestSuite, GPIO_Number_12_InputMode) {
     GPIO::gpio_number gpio_n = 12;
     inst.gpio().write(gpio_n, GPIO::Config::InputMode);
     auto res = inst.gpio().read(gpio_n);
-    std::cout << "gpio in Result:" << std::to_string(res) << std::endl;
+    //std::cout << "gpio in Result:" << std::to_string(res) << std::endl;
     EXPECT_EQ(res, GPIO::Config::InputMode);
 }
 
@@ -90,7 +90,7 @@ TEST(GPIOTestSuite, GPIO_Number_12_OutputMode) {
     GPIO::gpio_number gpio_n = 12;
     inst.gpio().write(gpio_n, GPIO::Config::OutputMode);
     auto res = inst.gpio().read(gpio_n);
-    std::cout << "gpio out Result:" << std::to_string(res) << std::endl;
+    //std::cout << "gpio out Result:" << std::to_string(res) << std::endl;
     EXPECT_EQ(res, GPIO::Config::OutputMode);
 }
 
@@ -103,7 +103,7 @@ TEST(GPIOTestSuite, GPIO_Number_12_AlternateFunction0) {
     GPIO::gpio_number gpio_n = 12;
     inst.gpio().write(gpio_n, GPIO::Config::AlternateFunction0);
     auto res = inst.gpio().read(gpio_n);
-    std::cout << "AlternateFunction0:" << std::to_string(res) << std::endl;
+    //std::cout << "AlternateFunction0:" << std::to_string(res) << std::endl;
     EXPECT_EQ(res, GPIO::Config::AlternateFunction0);
 }
 
@@ -116,7 +116,7 @@ TEST(GPIOTestSuite, GPIO_Number_12_AlternateFunction1) {
     GPIO::gpio_number gpio_n = 12;
     inst.gpio().write(gpio_n, GPIO::Config::AlternateFunction1);
     auto res = inst.gpio().read(gpio_n);
-    std::cout << "AlternateFunction1:" << std::to_string(res) << std::endl;
+    //std::cout << "AlternateFunction1:" << std::to_string(res) << std::endl;
     EXPECT_EQ(res, GPIO::Config::AlternateFunction1);
 }
 
@@ -129,7 +129,7 @@ TEST(GPIOTestSuite, GPIO_Number_12_AlternateFunction2) {
     GPIO::gpio_number gpio_n = 12;
     inst.gpio().write(gpio_n, GPIO::Config::AlternateFunction2);
     auto res = inst.gpio().read(gpio_n);
-    std::cout << "AlternateFunction2:" << std::to_string(res) << std::endl;
+    //std::cout << "AlternateFunction2:" << std::to_string(res) << std::endl;
     EXPECT_EQ(res, GPIO::Config::AlternateFunction2);
 }
 
@@ -142,7 +142,7 @@ TEST(GPIOTestSuite, GPIO_Number_12_AlternateFunction3) {
     GPIO::gpio_number gpio_n = 12;
     inst.gpio().write(gpio_n, GPIO::Config::AlternateFunction3);
     auto res = inst.gpio().read(gpio_n);
-    std::cout << "AlternateFunction3:" << std::to_string(res) << std::endl;
+    //std::cout << "AlternateFunction3:" << std::to_string(res) << std::endl;
     EXPECT_EQ(res, GPIO::Config::AlternateFunction3);
 }
 
@@ -155,7 +155,7 @@ TEST(GPIOTestSuite, GPIO_Number_12_AlternateFunction4) {
     GPIO::gpio_number gpio_n = 12;
     inst.gpio().write(gpio_n, GPIO::Config::AlternateFunction4);
     auto res = inst.gpio().read(gpio_n);
-    std::cout << "AlternateFunction4:" << std::to_string(res) << std::endl;
+    //std::cout << "AlternateFunction4:" << std::to_string(res) << std::endl;
     EXPECT_EQ(res, GPIO::Config::AlternateFunction4);
 }
 
@@ -168,7 +168,7 @@ TEST(GPIOTestSuite, GPIO_Number_12_AlternateFunction5) {
     GPIO::gpio_number gpio_n = 12;
     inst.gpio().write(gpio_n, GPIO::Config::AlternateFunction5);
     auto res = inst.gpio().read(gpio_n);
-    std::cout << "AlternateFunction5:" << std::to_string(res) << std::endl;
+    //std::cout << "AlternateFunction5:" << std::to_string(res) << std::endl;
     EXPECT_EQ(res, GPIO::Config::AlternateFunction5);
 }
 
@@ -183,7 +183,7 @@ TEST(GPIOTestSuite, GPIO_Number_0to9_OutputMode) {
 
     gpio_n = 0;
     auto res = inst.gpio().read32(gpio_n);
-    std::cout << "GPIO 0 to 9: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 0 to 9: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 0x9249249);
 }
@@ -199,7 +199,7 @@ TEST(GPIOTestSuite, GPIO_Number_10to19_OutputMode) {
 
     gpio_n = 10;
     auto res = inst.gpio().read32(gpio_n);
-    std::cout << "GPIO 10 to 19: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 10 to 19: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 0x9249249);
 }
@@ -215,7 +215,7 @@ TEST(GPIOTestSuite, GPIO_Number_20to29_OutputMode) {
 
     gpio_n = 20;
     auto res = inst.gpio().read32(gpio_n);
-    std::cout << "GPIO 20 to 29: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 20 to 29: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 0x9249249);
 }
@@ -231,7 +231,7 @@ TEST(GPIOTestSuite, GPIO_Number_30to39_OutputMode) {
 
     gpio_n = 30;
     auto res = inst.gpio().read32(gpio_n);
-    std::cout << "GPIO 30 to 39: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 30 to 39: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 0x9249249);
 }
@@ -247,7 +247,7 @@ TEST(GPIOTestSuite, GPIO_Number_40to49_OutputMode) {
 
     gpio_n = 40;
     auto res = inst.gpio().read32(gpio_n);
-    std::cout << "GPIO 40 to 49: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 40 to 49: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 0x9249249);
 }
@@ -263,7 +263,7 @@ TEST(GPIOTestSuite, GPIO_Number_50to53_OutputMode) {
 
     gpio_n = 50;
     auto res = inst.gpio().read32(gpio_n);
-    std::cout << "GPIO 50 to 53: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 50 to 53: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 0x249);
 }
@@ -279,7 +279,7 @@ TEST(GPIOTestSuite, GPIO_Number_0to9_AlternateFunction0) {
 
     gpio_n = 0;
     auto res = inst.gpio().read32(gpio_n);
-    std::cout << "GPIO 0 to 9: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 0 to 9: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 0x24924924);
 }
@@ -295,7 +295,7 @@ TEST(GPIOTestSuite, GPIO_Number_10to19_AlternateFunction2) {
 
     gpio_n = 10;
     auto res = inst.gpio().read32(gpio_n);
-    std::cout << "GPIO 10 to 19: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 10 to 19: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 0x36db6db6);
 }
@@ -311,7 +311,7 @@ TEST(GPIOTestSuite, GPIO_Number_20to29_AlternateFunction5) {
 
     gpio_n = 20;
     auto res = inst.gpio().read32(gpio_n);
-    std::cout << "GPIO 20 to 29: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 20 to 29: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 0x12492492);
 }
@@ -327,7 +327,7 @@ TEST(GPIOTestSuite, GPIO_Number_30to39_InputMode) {
 
     gpio_n = 30;
     auto res = inst.gpio().read32(gpio_n);
-    std::cout << "GPIO 30 to 39: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 30 to 39: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 0x0);
 }
@@ -347,7 +347,7 @@ TEST(GPIOTestSuite, GPIO_Number_40to49_OutputMode_AlternateFunction3) {
 
     gpio_n = 40;
     auto res = inst.gpio().read32(gpio_n);
-    std::cout << "GPIO 40 to 49: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 40 to 49: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 0x3fff9249);
 }
@@ -367,7 +367,7 @@ TEST(GPIOTestSuite, GPIO_Number_50to53_InputMode_AlternateFunction4) {
 
     gpio_n = 50;
     auto res = inst.gpio().read32(gpio_n);
-    std::cout << "GPIO 50 to 53: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 50 to 53: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 0x6c0);
 }
@@ -383,7 +383,7 @@ TEST(GPIOTestSuite, GPIO_Number_0to31_GPSETn) {
 
     gpio_n = 20;
     auto res = inst.gpio().GPGETn(gpio_n);
-    std::cout << "GPIO 0 to 31: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 0 to 31: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 01);
 }
@@ -399,7 +399,7 @@ TEST(GPIOTestSuite, GPIO_Number_32to53_GPSETn) {
 
     gpio_n = 40;
     auto res = inst.gpio().GPGETn(gpio_n);
-    std::cout << "GPIO 32 to 53: 0x" << std::hex << res << std::dec << std::endl;
+    //std::cout << "GPIO 32 to 53: 0x" << std::hex << res << std::dec << std::endl;
 
     EXPECT_EQ(res, 01);
 }
