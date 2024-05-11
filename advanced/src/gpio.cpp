@@ -13,7 +13,7 @@ void GPIO::write(gpio_number gpio_n, GPIO::Config cfg) {
      * @brief
      *      First clear those bits and then set to value config.
     */
-    m_register[(gpio_n / 10)] &= (~(cfg << ((gpio_n % 10) * 3U)));
+    m_register[(gpio_n / 10)] &= (~(07U << ((gpio_n % 10) * 3U)));
     m_register[(gpio_n / 10)] |= (cfg << ((gpio_n % 10) * 3U));
 }
 
