@@ -12,7 +12,11 @@
 class GPIOTest : public ::testing::Test
 {
     public:
-        GPIOTest() : m_reg(64), m_gpio(*new(m_reg.data()) GPIO) {}
+        /**
+         * @brief Memory region for GPIO instance will be taken from m_memory_region,
+         *        the GPIO instance layout will be done from m_memory_region.
+        */
+        GPIOTest() : m_gpio(*new(m_memory_region) GPIO) {}
         ~GPIOTest() = default;
         
         virtual void SetUp() override;
@@ -24,7 +28,7 @@ class GPIOTest : public ::testing::Test
         }
 
     private:
-        std::vector<std::uint32_t> m_reg;
+        std::uint32_t m_memory_region[64];
         GPIO& m_gpio;
 };
 

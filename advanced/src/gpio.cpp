@@ -4,7 +4,11 @@
 
 #include "gpio.hpp"
 
-std::uint32_t GPIO::get(gpio_number gpio_n) {
+std::uint32_t GPIO::read(gpio_number gpio_n) {
+    return(m_register[gpio_n/10]);
+}
+
+std::uint32_t GPIO::level(gpio_number gpio_n) {
     if(gpio_n < 32) {
         return (m_register[Register::BCM2837_GPLEV0] &= (1U << gpio_n));
 	}
@@ -12,24 +16,24 @@ std::uint32_t GPIO::get(gpio_number gpio_n) {
 	return (m_register[Register::BCM2837_GPLEV1] &= (1U << (gpio_n - 32)));
 }
 
-void GPIO::out(gpio_number gpio_n) {
+void GPIO::output(gpio_number gpio_n) {
 
     /* @brief:
     *  Each 32bits register can accomodate 10 gpios FSEL, hence division by 10.
     *  gpios (0-9), (10-19), (20-29), (30-39), (40-49) and (50-53) will be 
     *  programmed in register FSEL0, FSEL1, FSEL2, FSEL3, FSEL4 and FSEL5 respectively.
     */
-    m_register[(gpio_n / 10)] |= (1U << (gpio_n % 10) * 3U);
+    m_register[(gpio_n / 10)] |= (1U << ((gpio_n % 10) * 3U));
 }
 
-void GPIO::in(gpio_number gpio_n) {
+void GPIO::input(gpio_number gpio_n) {
 
     /* @brief:
     *  Each 32bits register can accomodate 10 gpios FSEL, hence division by 10.
     *  gpios (0-9), (10-19), (20-29), (30-39), (40-49) and (50-53) will be 
     *  programmed in register FSEL0, FSEL1, FSEL2, FSEL3, FSEL4 and FSEL5 respectively.
     */		
-    m_register[(gpio_n / 10)] |= (~(7U << (gpio_n % 10U) * 3U));
+    m_register[(gpio_n / 10)] &= (~(7U << ((gpio_n % 10U) * 3U)));
 }
 
 void GPIO::clear(gpio_number gpio_n) {

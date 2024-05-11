@@ -65,12 +65,12 @@ class GPIO {
         /** 
          * @brief Compiler give preference to this new operator over global new operator and invoke this new operator. 
          * @param nBytes Number of bytes to be allocated
-         * @param ptr additional pointer that will be return as is if it's provided in call
+         * @param region is the memory region to be return if present.
          * @return pointer to void
          */
-        void *operator new(std::size_t nBytes, void *ptr=nullptr) {
+        void *operator new(std::size_t nBytes, void *region=nullptr) {
 
-            if(nullptr == ptr) {
+            if(nullptr == region) {
                 /**
                  * @brief 
                  *  The address is Physical address of GPIO for Raspberry Pi 3B and
@@ -78,7 +78,7 @@ class GPIO {
                  */
                 return reinterpret_cast<void *>((0x3F000000) + (0x00200000));
             }
-            return(ptr);
+            return(region);
         }
 
         GPIO() {
@@ -104,9 +104,9 @@ class GPIO {
          * @param gpio number
          * @return none
          **/
-        void in(gpio_number gpio);
-        void out(gpio_number gpio);
-        std::uint32_t get(gpio_number gpio);
+        void input(gpio_number gpio);
+        void output(gpio_number gpio);
+        std::uint32_t level(gpio_number gpio);
 
         /**
          * @brief
@@ -124,6 +124,7 @@ class GPIO {
          * */
         void clear(gpio_number gpio);
         void set(gpio_number gpio);
+        std::uint32_t read(gpio_number gpio_n);
 
     private:
         /** 
