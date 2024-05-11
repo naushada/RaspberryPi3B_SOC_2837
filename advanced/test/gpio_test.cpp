@@ -75,7 +75,7 @@ TEST(GPIOTestSuite, GPIO_Number_12_InputMode) {
      * GPIONumber 12 is mapped to GPIO PIN 32
     */
     GPIO::gpio_number gpio_n = 12;
-    inst.gpio().input(gpio_n);
+    inst.gpio().write(gpio_n, GPIO::Config::InputMode);
     auto res = inst.gpio().read(gpio_n);
     std::cout << "gpio in Result:" << std::to_string(res) << std::endl;
     EXPECT_EQ(res, GPIO::Config::InputMode);
@@ -88,7 +88,7 @@ TEST(GPIOTestSuite, GPIO_Number_12_OutputMode) {
      * GPIONumber 12 is mapped to GPIO PIN 32
     */
     GPIO::gpio_number gpio_n = 12;
-    inst.gpio().output(gpio_n);
+    inst.gpio().write(gpio_n, GPIO::Config::OutputMode);
     auto res = inst.gpio().read(gpio_n);
     std::cout << "gpio out Result:" << std::to_string(res) << std::endl;
     EXPECT_EQ(res, GPIO::Config::OutputMode);
