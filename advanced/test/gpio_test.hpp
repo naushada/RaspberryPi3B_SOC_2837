@@ -6,6 +6,7 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
+#include <unordered_map>
 
 #include "gpio.hpp"
 
@@ -16,7 +17,7 @@ class GPIOTest : public ::testing::Test
          * @brief Memory region for GPIO instance will be taken from m_memory_region,
          *        the GPIO instance layout will be done from m_memory_region.
         */
-        GPIOTest() : m_gpio(*new(m_memory_region) GPIO) {}
+        GPIOTest() : m_memory_region(64), m_gpio(*new(m_memory_region.data()) GPIO) {}
         ~GPIOTest() = default;
         
         virtual void SetUp() override;
@@ -28,8 +29,9 @@ class GPIOTest : public ::testing::Test
         }
 
     private:
-        std::uint32_t m_memory_region[64];
+        std::vector<std::uint32_t> m_memory_region;
         GPIO& m_gpio;
+        std::unordered_map<std::string, std::string> m_gpio2PinMap;
 };
 
 

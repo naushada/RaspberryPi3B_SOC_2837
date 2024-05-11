@@ -4,8 +4,26 @@
 
 #include "gpio.hpp"
 
-std::uint32_t GPIO::read(gpio_number gpio_n) {
+void GPIO::write32(gpio_number gpio_n, std::uint32_t value) {
+    m_register[gpio_n/10] = value;
+}
+
+void GPIO::write(gpio_number gpio_n, GPIO::Config cfg) {
+    /**
+     * @brief
+     *      First clear those bits and then set to value config.
+    */
+    m_register[(gpio_n / 10)] &= (~(cfg << ((gpio_n % 10) * 3U)));
+    m_register[(gpio_n / 10)] |= (cfg << ((gpio_n % 10) * 3U));
+}
+
+std::uint32_t GPIO::read32(gpio_number gpio_n) {
     return(m_register[gpio_n/10]);
+}
+
+std::uint32_t GPIO::read(gpio_number gpio_n) {
+
+    return((m_register[gpio_n/10]  >> ((gpio_n % 10U) * 3U)) & 0b111);
 }
 
 std::uint32_t GPIO::level(gpio_number gpio_n) {

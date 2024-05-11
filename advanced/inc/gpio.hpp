@@ -6,6 +6,17 @@
 
 class GPIO {
     public:
+        enum Config: std::uint32_t {
+            InputMode = 0b000,
+            OutputMode = 0b001,
+            AlternateFunction0 = 0b100,
+            AlternateFunction1 = 0b101,
+            AlternateFunction2 = 0b110,
+            AlternateFunction3 = 0b111,
+            AlternateFunction4 = 0b011,
+            AlternateFunction5 = 0b010
+        };
+
         enum Register: std::uint32_t {
             /* GPIO Function Selection offset */
             BCM2837_GPFSEL0,
@@ -125,6 +136,9 @@ class GPIO {
         void clear(gpio_number gpio);
         void set(gpio_number gpio);
         std::uint32_t read(gpio_number gpio_n);
+        std::uint32_t read32(gpio_number gpio_n);
+        void write32(gpio_number gpio_n, std::uint32_t value);
+        void write(gpio_number gpio_n, GPIO::Config cfg);
 
     private:
         /** 
