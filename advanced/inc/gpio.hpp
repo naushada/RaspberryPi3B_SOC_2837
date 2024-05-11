@@ -80,7 +80,7 @@ class GPIO {
          * @return pointer to void
          */
         void *operator new(std::size_t nBytes, void *region=nullptr) {
-
+            (void)nBytes;
             if(nullptr == region) {
                 /**
                  * @brief 

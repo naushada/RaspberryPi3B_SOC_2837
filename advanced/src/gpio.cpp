@@ -28,10 +28,10 @@ std::uint32_t GPIO::read(gpio_number gpio_n) {
 
 std::uint32_t GPIO::level(gpio_number gpio_n) {
     if(gpio_n < 32) {
-        return (m_register[Register::BCM2837_GPLEV0] &= (1U << gpio_n));
+        return (m_register[Register::BCM2837_GPLEV0] & (1U << gpio_n));
 	}
 
-	return (m_register[Register::BCM2837_GPLEV1] &= (1U << (gpio_n - 32)));
+	return (m_register[Register::BCM2837_GPLEV1] & (1U << (gpio_n - 32)));
 }
 
 void GPIO::output(gpio_number gpio_n) {

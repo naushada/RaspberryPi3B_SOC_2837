@@ -4,7 +4,9 @@
 #include "gpio.hpp"
 
 std::int32_t main() {
-       GPIO &gpio = *new GPIO;
+    GPIO &gpio = *new GPIO;
+
+    return(0);
 }
 
 
