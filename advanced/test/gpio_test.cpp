@@ -94,8 +94,83 @@ TEST(GPIOTestSuite, GPIO_Number_12_OutputMode) {
     EXPECT_EQ(res, GPIO::Config::OutputMode);
 }
 
+TEST(GPIOTestSuite, GPIO_Number_12_AlternateFunction0) {
 
+    GPIOTest inst;
+    /**
+     * GPIONumber 12 is mapped to GPIO PIN 32
+    */
+    GPIO::gpio_number gpio_n = 12;
+    inst.gpio().write(gpio_n, GPIO::Config::AlternateFunction0);
+    auto res = inst.gpio().read(gpio_n);
+    std::cout << "AlternateFunction0:" << std::to_string(res) << std::endl;
+    EXPECT_EQ(res, GPIO::Config::AlternateFunction0);
+}
 
+TEST(GPIOTestSuite, GPIO_Number_12_AlternateFunction1) {
+
+    GPIOTest inst;
+    /**
+     * GPIONumber 12 is mapped to GPIO PIN 32
+    */
+    GPIO::gpio_number gpio_n = 12;
+    inst.gpio().write(gpio_n, GPIO::Config::AlternateFunction1);
+    auto res = inst.gpio().read(gpio_n);
+    std::cout << "AlternateFunction1:" << std::to_string(res) << std::endl;
+    EXPECT_EQ(res, GPIO::Config::AlternateFunction1);
+}
+
+TEST(GPIOTestSuite, GPIO_Number_12_AlternateFunction2) {
+
+    GPIOTest inst;
+    /**
+     * GPIONumber 12 is mapped to GPIO PIN 32
+    */
+    GPIO::gpio_number gpio_n = 12;
+    inst.gpio().write(gpio_n, GPIO::Config::AlternateFunction2);
+    auto res = inst.gpio().read(gpio_n);
+    std::cout << "AlternateFunction2:" << std::to_string(res) << std::endl;
+    EXPECT_EQ(res, GPIO::Config::AlternateFunction2);
+}
+
+TEST(GPIOTestSuite, GPIO_Number_12_AlternateFunction3) {
+
+    GPIOTest inst;
+    /**
+     * GPIONumber 12 is mapped to GPIO PIN 32
+    */
+    GPIO::gpio_number gpio_n = 12;
+    inst.gpio().write(gpio_n, GPIO::Config::AlternateFunction3);
+    auto res = inst.gpio().read(gpio_n);
+    std::cout << "AlternateFunction3:" << std::to_string(res) << std::endl;
+    EXPECT_EQ(res, GPIO::Config::AlternateFunction3);
+}
+
+TEST(GPIOTestSuite, GPIO_Number_12_AlternateFunction4) {
+
+    GPIOTest inst;
+    /**
+     * GPIONumber 12 is mapped to GPIO PIN 32
+    */
+    GPIO::gpio_number gpio_n = 12;
+    inst.gpio().write(gpio_n, GPIO::Config::AlternateFunction4);
+    auto res = inst.gpio().read(gpio_n);
+    std::cout << "AlternateFunction4:" << std::to_string(res) << std::endl;
+    EXPECT_EQ(res, GPIO::Config::AlternateFunction4);
+}
+
+TEST(GPIOTestSuite, GPIO_Number_12_AlternateFunction5) {
+
+    GPIOTest inst;
+    /**
+     * GPIONumber 12 is mapped to GPIO PIN 32
+    */
+    GPIO::gpio_number gpio_n = 12;
+    inst.gpio().write(gpio_n, GPIO::Config::AlternateFunction5);
+    auto res = inst.gpio().read(gpio_n);
+    std::cout << "AlternateFunction5:" << std::to_string(res) << std::endl;
+    EXPECT_EQ(res, GPIO::Config::AlternateFunction5);
+}
 
 
 
