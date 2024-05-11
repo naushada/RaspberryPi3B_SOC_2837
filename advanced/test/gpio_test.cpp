@@ -17,10 +17,15 @@ void GPIOTest::TestBody() {
 }
 
 TEST(GPIOTestSuite, GPIOInputMode) {
-    std::uint32_t reg[41];
-    GPIO &gpio = *new(reg) GPIO;
+    //std::uint32_t reg[41];
+    GPIOTest inst;
+    /**
+     * @brief Memory for GPIO instance will be taken from reg memory,
+     *        instance layout will be done on memory allocated for reg vector of dimention 41
+    */
+    //GPIO &gpio = *new(reg) GPIO;
 
-    gpio.in(12);
+    inst.gpio().in(12);
 
 }
 

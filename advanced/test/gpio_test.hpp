@@ -12,7 +12,7 @@
 class GPIOTest : public ::testing::Test
 {
     public:
-        GPIOTest(const std::string& in);
+        GPIOTest() : m_gpio(*new(m_reg) GPIO) {}
         ~GPIOTest() = default;
      
         std::string& getFileName() {
@@ -23,8 +23,14 @@ class GPIOTest : public ::testing::Test
         virtual void TearDown() override;
         virtual void TestBody() override;
 
+        GPIO& gpio() const {
+            return(m_gpio);
+        }
+
     private:
         std::string fileName;
+        std::uint32_t m_reg[41];
+        GPIO& m_gpio;
 };
 
 
