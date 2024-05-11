@@ -52,7 +52,10 @@ class GPIO {
             BCM2837_GPPUDCLK0,
             BCM2837_GPPUDCLK1,
             BCM2837_RESERVED,
-            BCM2837_TEST,
+            BCM2837_TEST1,
+            BCM2837_TEST2,
+            BCM2837_TEST3,
+            BCM2837_TEST4,
             BCM2837_MAX
         };
 
@@ -68,7 +71,9 @@ class GPIO {
             for(auto idx = 0; idx < Register::BCM2837_MAX; ++idx) {
                 std::printf("\nAddress of this 0x%X: ", &m_register[idx]);
             }
+            std::printf("\n");
         }
+
         ~GPIO() = default;
 
         /**
@@ -103,6 +108,9 @@ class GPIO {
         void clear(gpio_number gpio);
 
     private:
+        /* address for m_register will be 
+         * [0x3F200000, 0x3F200004, 0x3F200008, 0x3F20000C, 0x3F200010, 0x3F200014, 0x3F200018, 0x3F20001C  ... 0x3F2000B0] 
+         */
         device_register m_register[Register::BCM2837_MAX];
 
 };
